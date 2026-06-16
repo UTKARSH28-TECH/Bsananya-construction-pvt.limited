@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #0f172a;
+  --gold: #f59e0b;
+  --paper: #ffffff;
+  --mist: #f8fafc;
+  --ink: #0f172a;
+  --muted: #64748b;
+  --line: rgba(15, 23, 42, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--mist);
+  color: var(--ink);
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+body.dark {
+  --paper: #0f172a;
+  --mist: #020617;
+  --ink: #f8fafc;
+  --muted: #cbd5e1;
+  --line: rgba(248, 250, 252, 0.14);
+  background: #020617;
+}
+
+::selection {
+  background: rgba(245, 158, 11, 0.35);
+}
+
+.glass {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.13);
+  box-shadow: 0 24px 80px rgba(2, 6, 23, 0.22);
+  backdrop-filter: blur(18px);
+}
+
+.section {
+  padding: 96px 0;
+}
+
+.container {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0;
+  height: 2px;
+  content: "";
+  background: #f59e0b;
+  transition: width 220ms ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.project-masonry {
+  columns: 3 280px;
+  column-gap: 18px;
+}
+
+.project-masonry > article {
+  break-inside: avoid;
+  margin-bottom: 18px;
+}
+
+.before-after {
+  clip-path: inset(0 calc(100% - var(--split, 58%)) 0 0);
+}
+
+.focus-ring:focus-visible {
+  outline: 3px solid rgba(245, 158, 11, 0.45);
+  outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .section {
+    padding: 72px 0;
+  }
+}
